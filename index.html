@@ -303,8 +303,14 @@ const a=document.createElement(‘a’); a.href=URL.createObjectURL(blob); a.dow
 }
 document.getElementById(‘exportModal’).addEventListener(‘click’,e=>{ if(e.target===document.getElementById(‘exportModal’))closeExport(); });
 
+// Ensure DOM is ready before rendering
+if (document.readyState === ‘loading’) {
+document.addEventListener(‘DOMContentLoaded’, renderFirms);
+} else {
 renderFirms();
+}
 </script>
 
 </body>
 </html>
+
